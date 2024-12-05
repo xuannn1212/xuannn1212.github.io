@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>美麗升級計劃</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    h1, h2 {
+      color: #ff6f61;
+      text-align: center;
+    }
+    .highlight {
+      color: #ff6f61;
+      font-weight: bold;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul li {
+      margin: 10px 0;
+    }
+    .cta {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .cta button {
+      background-color: #ff6f61;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .cta button:hover {
+      background-color: #e65c54;
+    }
+    form {
+      margin-top: 20px;
+    }
+    form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    form input, form select, form button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    form button {
+      background-color: #ff6f61;
+      color: #fff;
+      border: none;
+      font-size: 16px;
+    }
+    form button:hover {
+      background-color: #e65c54;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>專屬你的美麗升級計劃！</h1>
+    <p><span class="highlight">免費試用熱銷化妝品</span>，解鎖專屬優惠！</p>
+    <p>你是否夢想擁有清透無瑕的底妝、亮眼透亮的膚色，或是魅力持久的唇妝？現在，你只需花幾秒填寫資訊，即可免費領取熱銷產品試用裝，體驗讓萬千女性愛不釋手的美妝效果！</p>
+
+    <h2>產品亮點與好處</h2>
+    <ul>
+      <li><strong>7天逆轉底妝效果！</strong><br>領取明星粉底液試用裝，7天打造清透無瑕的肌膚。專為亞洲膚質設計，徹底告別暗沉與脫妝困擾。</li>
+      <li><strong>3分鐘快速上妝秘訣！</strong><br>熱賣產品小樣免費領，輕鬆擁有無瑕妝感，完美適合忙碌生活節奏。無需繁瑣步驟，簡單實現專櫃級效果。</li>
+      <li><strong>14天展現透亮肌膚！</strong><br>見證肌膚透亮與妝容服貼，體驗保養與化妝完美結合的奢華感受。限量優惠，讓你的美麗不必等待！</li>
+      <li><strong>1支搞定完美唇妝！</strong><br>免費體驗熱賣唇膏，色澤持久、魅力加倍，讓你隨時成為焦點。精選自然色系，百搭各種妝容風格。</li>
+      <li><strong>5步驟快速變身妝容達人！</strong><br>簡單5步驟，快速打造專業級妝容質感，提升整體自信。限量試用品免費領取，輕鬆擁有不一樣的妝容體驗。</li>
+    </ul>
+
+    <div class="cta">
+      <p>立即填寫資訊，領取你的美麗神器！</p>
+      <p><strong>名額有限，現在行動才能把握你的美麗機會！</strong></p>
+    </div>
+
+    <form action="#" method="post">
+      <label for="name">姓名：</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="phone">電話：</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="email">電子郵件：</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="preference">產品偏好（選填）：</label>
+      <select id="preference" name="preference">
+        <option value="foundation">粉底液</option>
+        <option value="lipstick">唇膏</option>
+        <option value="skincare">保養類</option>
+      </select>
+
+      <button type="submit">立即領取試用品！</button>
+    </form>
+  </div>
+</body>
+</html>
