@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple CRM for Cosmetics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fef6f8;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ff7fa1;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+        main {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #ff7fa1;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input, textarea, button {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #ff7fa1;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e56b8c;
+        }
+        .client-list {
+            margin-top: 20px;
+        }
+        .client-card {
+            background: #fff0f5;
+            padding: 15px;
+            border: 1px solid #ffd3e0;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .client-card h3 {
+            margin: 0;
+            color: #ff7fa1;
+        }
+        .client-card p {
+            margin: 5px 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Simple CRM for Cosmetics</h1>
+    </header>
+    <main>
+        <h1>Manage Your Clients</h1>
+        <!-- Client Form -->
+        <form id="clientForm">
+            <label for="name">Client Name:</label>
+            <input type="text" id="name" placeholder="Enter client name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" placeholder="Enter phone number" required>
+
+            <label for="notes">Notes:</label>
+            <textarea id="notes" rows="4" placeholder="Additional notes"></textarea>
+
+            <button type="button" onclick="addClient()">Add Client</button>
+        </form>
+
+        <!-- Client List -->
+        <div class="client-list" id="clientList">
+            <h2>Client List</h2>
+            <p>No clients added yet.</p>
+        </div>
+    </main>
+
+    <script>
+        // Add client to list and save to localStorage
+        function addClient() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const notes = document.getElementById('notes').value.trim();
+
+            if (name && email && phone) {
+                // Get existing clients from localStorage
+                const clients = JSON.parse(localStorage.getItem('clients')) || [];
+
+                // Add new client
+                clients.push({ name, email, phone, notes });
+                localStorage.setItem('clients', JSON.stringify(clients));
+
+                // Reset form
+                document.getElementById('clientForm').reset();
+
+                // Refresh client list
+                displayClients();
+            } else {
+                alert('Please fill out all required fields.');
+            }
+        }
+
+        // Display clients from localStorage
+        function displayClients() {
+            const clients = JSON.parse(localStorage.getItem('clients')) || [];
+            const clientList = document.getElementById('clientList');
+            clientList.innerHTML = '<h2>Client List</h2>';
+
+            if (clients.length === 0) {
+                clientList.innerHTML += '<p>No clients added yet.</p>';
+                return;
+            }
+
+            clients.forEach(client => {
+                const clientCard = document.createElement('div');
+                clientCard.className = 'client-card';
+                clientCard.innerHTML = `
+                    <h3>${client.name}</h3>
+                    <p><strong>Email:</strong> ${client.email}</p>
+                    <p><strong>Phone:</strong> ${client.phone}</p>
+                    <p><strong>Notes:</strong> ${client.notes || 'None'}</p>
+                `;
+                clientList.appendChild(clientCard);
+            });
+        }
+
+        // Load clients on page load
+        window.onload = displayClients;
+    </script>
+</body>
+</html>
